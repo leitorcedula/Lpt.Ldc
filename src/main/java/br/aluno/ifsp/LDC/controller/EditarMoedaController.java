@@ -1,4 +1,4 @@
-package br.edu.ifsp.javafx.aulas.controller;
+package br.aluno.ifsp.LDC.controller;
 
 import java.io.IOException;
 import java.net.URL;

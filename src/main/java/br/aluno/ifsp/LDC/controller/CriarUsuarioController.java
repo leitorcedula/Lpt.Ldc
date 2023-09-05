@@ -1,22 +1,12 @@
-package br.edu.ifsp.javafx.aulas.controller;
+package br.aluno.ifsp.LDC.controller;
 
 import java.io.IOException;
 import java.net.URL;
 
 import br.edu.ifsp.javafx.aulas.App;
-import br.edu.ifsp.javafx.aulas.dao.UsuarioDAO;
+
 import br.edu.ifsp.javafx.aulas.model.Usuario;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.stage.Stage;
+
 
 public class CriarUsuarioController {
 
