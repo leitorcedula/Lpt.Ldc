@@ -1,59 +1,54 @@
-// package br.aluno.ifsp.LDC.controller;
-
-// import java.io.IOException;
-// import java.net.URL;
-
-// import  br.aluno.ifsp.LDC.LdcApplication;
-
-// import br.aluno.ifsp.LDC.model.Usuario;
-
-
-// public class CriarUsuarioController {
-
-   
-    
-
-//     public void initialize(){
-//         // Configuramos um evento no botão para pegar os dados dos campos e retorna-los
-
-        
-
-//         // btnSalvar.setOnAction((ActionEvent event) ->{ 
-            
-//         //     Usuario novoUsuario = new Usuario(inputIdUser.getText(), inputDataN.getText(),
-//         //      inputEmail.getText(), inputSenha.getText(), inputNome.getText(), inputLocal.getText(), inputDef.getText());
-//         // // App.listaCadastros.add(novoCadastro);
-//         // // Uso do DAO
-//         // UsuarioDAO cadDAO = UsuarioDAO.getInstance();   
-//         // cadDAO.create(novoUsuario);     
-//         // LabelSalvo.setText("Cadastro Salvo!");
-//         // System.out.println(novoUsuario);
-
-
-           
-//         // });      
-//     }
-
-
-    
-   
-// }
-
 package br.aluno.ifsp.LDC.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+import br.aluno.ifsp.LDC.model.Usuario;
+import br.aluno.ifsp.LDC.dao.UsuarioDAO;
+
+@RestController
+@RequestMapping("/usuario")
 public class CriarUsuarioController {
 
-    @GetMapping("/criarUsuario")
-    public String criarUsuario() {
-        // Lógica para criar um novo usuário
-        return "criarUsuario"; // Retorna a página de criação de usuário
+    @GetMapping("/form")
+    public String exibirFormulario() {
+        return "formulario-usuario"; // Retorna a página do formulário
     }
 
-    // Outros métodos e lógica do controlador
+    @PostMapping("/criar")
+    public String criarUsuario(
+        @RequestParam String inputIdUser,
+        @RequestParam String inputDataN,
+        @RequestParam String inputEmail,
+        @RequestParam String inputSenha,
+        @RequestParam String inputNome,
+        @RequestParam String inputDef,
+        Model model
+    ) {
+
+        inputIdUser = "1";
+        inputDataN = "1";
+        inputEmail = "1";
+        inputSenha = "1";
+        inputNome = "1";
+        inputDef = "1";
+     
+
+        // Crie um novo usuário com os dados recebidos do formulário
+        Usuario novoUsuario = new Usuario(inputIdUser, inputDataN, inputEmail, inputSenha, inputNome, inputDef, inputDef);
+
+        // Salve o novo usuário no banco de dados
+        UsuarioDAO cadDAO = UsuarioDAO.getInstance();
+        cadDAO.create(novoUsuario);
+
+        // Adicione o novo usuário ao modelo para exibição na página de confirmação
+        model.addAttribute("novoUsuario", novoUsuario);
+
+        return "usuario-criado"; // Retorna a página de confirmação
+    }
 }
-
-
