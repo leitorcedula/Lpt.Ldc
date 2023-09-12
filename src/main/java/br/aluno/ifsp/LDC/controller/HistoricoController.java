@@ -30,7 +30,7 @@ import java.net.URL;
 public class HistoricoController {
 
 
-    // public void initialize() {
+     public void initialize() {
     //     // Ensina para a coluna qual o campo deve ser invocado no objeto de Histórico
     //     colValor.setCellValueFactory(new PropertyValueFactory<>("valor"));
     //     colID.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -80,6 +80,6 @@ public class HistoricoController {
     //     Node source = (Node) event.getSource();
     //     Stage stage = (Stage) source.getScene().getWindow();
     //     stage.close();
-    // }
+     }
    
 }
