@@ -1,6 +1,6 @@
-package br.edu.ifsp.javafx.aulas.model;
+package br.aluno.ifsp.LDC.model;
 
-import br.edu.ifsp.javafx.aulas.dao.UsuarioDAO;
+import br.aluno.ifsp.LDC.dao.UsuarioDAO;
 
 public class Usuario {
     private String idUsuario;
@@ -81,19 +81,19 @@ public class Usuario {
 
 
 
-    public boolean verificarCredenciais(String email, String senha) {
-        UsuarioDAO usuarioDAO = new UsuarioDAO(); // Instancie o UsuarioDAO
+    // public boolean verificarCredenciais(String email, String senha) {
+    //     UsuarioDAO usuarioDAO = new UsuarioDAO(); // Instancie o UsuarioDAO
 
-        // Busque o usuário no banco de dados pelo email
-        Usuario usuario = usuarioDAO.buscaUsuarioPorEmail(email);
+    //     // Busque o usuário no banco de dados pelo email
+    //     Usuario usuario = usuarioDAO.buscaUsuarioPorEmail(email);
 
-        // Verifique se o usuário foi encontrado e se a senha fornecida é válida
-        if (usuario != null && usuario.getSenha().equals(senha)) {
-            return true; // Credenciais válidas
-        } else {
-            return false; // Credenciais inválidas
-        }
-    }
+    //     // Verifique se o usuário foi encontrado e se a senha fornecida é válida
+    //     if (usuario != null && usuario.getSenha().equals(senha)) {
+    //         return true; // Credenciais válidas
+    //     } else {
+    //         return false; // Credenciais inválidas
+    //     }
+    // }
 
     @Override
     public String toString() {

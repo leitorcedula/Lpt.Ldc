@@ -18,36 +18,33 @@ public class AdicionaNotaController {
 
        
 
-        btnAdicionaNota.setOnAction((ActionEvent event) ->{ 
+        // btnAdicionaNota.setOnAction((ActionEvent event) ->{ 
             
-            String texto = inputValor.getText();
-            double valor = Double.parseDouble(texto);
+        //     String texto = inputValor.getText();
+        //     double valor = Double.parseDouble(texto);
 
-            String texto2 = inputLargura.getText();
-            double largura = Double.parseDouble(texto2);
-
-            
-
-            String texto3 = inputAltura.getText();
-            double altura = Double.parseDouble(texto3);
+        //     String texto2 = inputLargura.getText();
+        //     double largura = Double.parseDouble(texto2);
 
             
-         Cedula cedula = new Cedula("", valor, inputID.getText(), largura, altura);
-        // App.listaCadastros.add(novoCadastro);
-        // Uso do DAO
-        CedulaDAO cedulaDAO = CedulaDAO.getInstance();   
-        cedulaDAO.create(cedula); 
-        LabelSalvo.setText("Cadastro Salvo!");    
+
+        //     String texto3 = inputAltura.getText();
+        //     double altura = Double.parseDouble(texto3);
+
+            
+        //  Cedula cedula = new Cedula("", valor, inputID.getText(), largura, altura);
+        // // App.listaCadastros.add(novoCadastro);
+        // // Uso do DAO
+        // CedulaDAO cedulaDAO = CedulaDAO.getInstance();   
+        // cedulaDAO.create(cedula); 
+        // LabelSalvo.setText("Cadastro Salvo!");    
        
-        System.out.println(cedula);
+        // System.out.println(cedula);
 
            
-        });  
+        // });  
         
-        btnVoltar.setOnAction((ActionEvent event) ->{ 
-           Back();
-           closeCurrentWindow(event);
-        });  
+   
     }
 
     

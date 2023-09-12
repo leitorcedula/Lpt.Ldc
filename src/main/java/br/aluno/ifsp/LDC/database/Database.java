@@ -1,24 +1,24 @@
-package br.edu.ifsp.javafx.aulas.database;
+package br.aluno.ifsp.LDC.database;
 
 import java.util.ArrayList;
 
 
-import br.edu.ifsp.javafx.aulas.model.Cedula;
-import br.edu.ifsp.javafx.aulas.model.Usuario;
+import br.aluno.ifsp.LDC.model.Cedula;
+import br.aluno.ifsp.LDC.model.Usuario;
 
-//import br.edu.ifsp.javafx.aulas.model.Cotacao;
-import br.edu.ifsp.javafx.aulas.model.Pais;
-import br.edu.ifsp.javafx.aulas.model.MoedaMetal;
+
+
+import br.aluno.ifsp.LDC.model.MoedaMetal;
 
 // Esta classe simula um SGDB. Coloque onde ficará os dados aqui!
 // Exemplo do professor sobre BDD
-//
+
 public class Database {
   private ArrayList<Cedula> cedulas;
   private ArrayList<Usuario> usuarios;
  
  // private ArrayList<Cotacao> cotacoes;
-  private ArrayList<Pais> paises;
+  
   private ArrayList<MoedaMetal> moedasMetais;
 
   // É void mesmo?
@@ -27,13 +27,13 @@ public class Database {
         usuarios = new ArrayList<>();
         
         //cotacoes = new ArrayList<>();
-        paises = new ArrayList<>();
+        
         moedasMetais = new ArrayList<>();
     }
 
   public void initCedula() {
-    cedulas.add(new Cedula("123", 10.0, "1", 87.75, 13.5));
-    cedulas.add(new Cedula("123", 20.0, "2", 10, 5));
+    cedulas.add(new Cedula( null, 10.0, "1", 87.75, 13.5));
+    cedulas.add(new Cedula( null, 20.0, "2", 10, 5));
     // cedulas.add(new Cedula("Cad3","End3", 456));
   }
 
@@ -152,36 +152,7 @@ public class Database {
 */
   
 
-  public void initPais() {
-    paises.add(new Pais("010", "Brasil"));
-    paises.add(new Pais("011", "Estados Unidos da América"));
-    paises.add(new Pais("012", "Inglaterra"));
-    // paises.add(new Pais("Cad3","End3", 456));
-  }
-
-  public void addDadoPais(Pais novo) {
-    paises.add(novo);
-  }
-
-  public ArrayList<Pais> recuperaDadoPais() {
-    return paises;
-  }
-
-  public void deletarPais(String idPais, String nomePais) {
-    Pais paisExcluir = null;
-    for (Pais pais : paises) {
-      if (pais.getIdPais().equals(idPais) && pais.getNomePais().equals(nomePais)) {
-        paisExcluir = pais;
-        break;
-      }
-    }
-    if (paisExcluir != null) {
-      paises.remove(paisExcluir);
-      // Colocar na tela: Cedula removido com sucesso: " + cedulaExcluir.getValor()
-    } else {
-      // Colocar na tela: Cedula não encontrado com o ID: " + id
-    }
-  }
+  
 
 
   

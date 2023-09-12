@@ -1,4 +1,4 @@
-package br.edu.ifsp.javafx.aulas.model;
+package br.aluno.ifsp.LDC.model;
 
 public abstract class MoedaAbstrata {
     
