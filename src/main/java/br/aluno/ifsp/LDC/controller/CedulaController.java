@@ -10,11 +10,12 @@ import br.aluno.ifsp.LDC.dao.CedulaDAO;
 import br.aluno.ifsp.LDC.model.Cedula;
 
 @RestController
-public class NotaController {
+public class CedulaController {
     
-    @PostMapping("/ldc/criarnota")
-    public void CriarNota(@RequestBody Cedula novaCedula){
-       // CedulaDAO cedulaDAO = 
+    @PostMapping("/ldc/criacedula")
+    public String CriarCedula(@RequestBody Cedula novaCedula){
+        CedulaDAO cedulaDAO = CedulaDAO.getInstance();
+        return "Cédula criada com sucesso!";
     }
 
 }

@@ -6,21 +6,21 @@ import br.aluno.ifsp.LDC.model.Cedula;
 
 public class CedulaDAO {
 
-    // private Database db;
-    // private static CedulaDAO instance;
+    private Database db;
+    private static CedulaDAO instance;
 
     // // O construtor privado garante que uma única instância irá existir
-    // private CedulaDAO() {
+     private CedulaDAO() {
 
-    // }
+     }
 
     // // Recupera a única instância do DAO
-    // public static CedulaDAO getInstance() {
-    //     if (instance == null) {
-    //         instance = new CedulaDAO();
-    //     }
-    //     return instance;
-    // }
+     public static CedulaDAO getInstance() {
+    if (instance == null) {
+        CedulaDAO instance = new CedulaDAO();
+     }
+     return instance;
+ }
 
     // // Recupera a conexão com o Banco de Dados
     // private Database getConnection() {
