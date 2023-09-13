@@ -18,6 +18,12 @@ import jakarta.websocket.server.PathParam;
 public class MoedaController {
     @Autowired
     private MoedaMetalDAO moedaDeletada = MoedaMetalDAO.getInstance();
+    
+    @PostMapping("/ldc/criaMoeda")
+    public String CriarMoeda(@RequestBody MoedaMetal novaMoeda){
+        MoedaMetalDAO moedaMetalDAO = MoedaMetalDAO.getInstance();
+        return "Moeda criada com sucesso!";
+    }
 
     @DeleteMapping("/ldc/deletamoeda/{idMoeda}")
     public String deletarMoeda(@PathVariable("idMoeda") String idMoeda) {
