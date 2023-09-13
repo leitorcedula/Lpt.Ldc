@@ -20,7 +20,7 @@ public class CedulaController {
     @PostMapping("/ldc/criacedula")
     public String CriarCedula(@RequestBody Cedula novaCedula){
         CedulaDAO cedulaDAO = CedulaDAO.getInstance();
-        return "Cédula criada com sucesso!";
+        return "Cédula criadaa com sucesso!";
     }
     @DeleteMapping("/ldc/deletaCedula/{idMoeda}")
     public String deletarCedula(@PathVariable("idMoeda") String idMoeda) {
