@@ -8,75 +8,75 @@ import br.aluno.ifsp.LDC.model.Usuario;
 
 
 
-import br.aluno.ifsp.LDC.model.MoedaMetal;
+import br.aluno.ifsp.LDC.model.Moeda;
 
 // Esta classe simula um SGDB. Coloque onde ficará os dados aqui!
 // Exemplo do professor sobre BDD
 
 public class Database {
   private ArrayList<Cedula> cedulas;
+  private ArrayList<Moeda> moedas;
   private ArrayList<Usuario> usuarios;
  
- // private ArrayList<Cotacao> cotacoes;
-  
-  private ArrayList<MoedaMetal> moedasMetais;
 
-  // É void mesmo?
+  
+
+  
   public Database() {
         cedulas = new ArrayList<>();
         usuarios = new ArrayList<>();
         
-        //cotacoes = new ArrayList<>();
         
-        moedasMetais = new ArrayList<>();
+        
+        moedas = new ArrayList<>();
     }
 
-  public void initCedula() {
-    cedulas.add(new Cedula( null, 10.0, "1", 87.75, 13.5));
-    cedulas.add(new Cedula( null, 20.0, "2", 10, 5));
-    // cedulas.add(new Cedula("Cad3","End3", 456));
-  }
+//   public void initCedula() {
+//     cedulas.add(new Cedula( null, 10.0, "1", 87.75, 13.5));
+//     cedulas.add(new Cedula( null, 20.0, "2", 10, 5));
+//     // cedulas.add(new Cedula("Cad3","End3", 456));
+//   }
 
-  public void addDadoCedula(Cedula novo) {
-    cedulas.add(novo);
-  }
+//   public void addDadoCedula(Cedula novo) {
+//     cedulas.add(novo);
+//   }
 
-  public ArrayList<Cedula> recuperaDadoCedula() {
-    return cedulas;
-  }
+//   public ArrayList<Cedula> recuperaDadoCedula() {
+//     return cedulas;
+//   }
 
-  public void deletarCedula(String idMoeda) {
-    Cedula cedulaExcluir = null;
-    for (Cedula cedula : cedulas) {
-      if (cedula.getIdMoeda().equals(idMoeda)) {
-        cedulaExcluir = cedula;
-        break;
-      }
-    }
-    if (cedulaExcluir != null) {
-      cedulas.remove(cedulaExcluir);
-      // Colocar na tela: Cedula removido com sucesso: " + cedulaExcluir.getValor()
-    } else {
-      // Colocar na tela: Cedula não encontrado com o ID: " + id
-    }
-  }
+//   public void deletarCedula(String idMoeda) {
+//     Cedula cedulaExcluir = null;
+//     for (Cedula cedula : cedulas) {
+//       if (cedula.getIdMoeda().equals(idMoeda)) {
+//         cedulaExcluir = cedula;
+//         break;
+//       }
+//     }
+//     if (cedulaExcluir != null) {
+//       cedulas.remove(cedulaExcluir);
+//       // Colocar na tela: Cedula removido com sucesso: " + cedulaExcluir.getValor()
+//     } else {
+//       // Colocar na tela: Cedula não encontrado com o ID: " + id
+//     }
+//   }
 
-  // É void mesmo?
+//   // É void mesmo?
 
-  public void update(Cedula toUpdate) {
-    Database db = getConnection();
-    ArrayList<Cedula> cedulas = db.recuperaDadoCedula();
-    for (int i = 0; i < cedulas.size(); i++) {
-        Cedula cedula = cedulas.get(i);
-        if (cedula.getIdMoeda().equals(toUpdate.getIdMoeda())) {
+//   public void update(Cedula toUpdate) {
+//     Database db = getConnection();
+//     ArrayList<Cedula> cedulas = db.recuperaDadoCedula();
+//     for (int i = 0; i < cedulas.size(); i++) {
+//         Cedula cedula = cedulas.get(i);
+//         if (cedula.getIdMoeda().equals(toUpdate.getIdMoeda())) {
            
-            cedula.setValor(toUpdate.getValor());
-            cedula.setLargura(toUpdate.getLargura());
-            cedula.setAltura(toUpdate.getAltura());
-            break;
-        }
-    }
-}
+//             cedula.setValor(toUpdate.getValor());
+//             cedula.setLargura(toUpdate.getLargura());
+//             cedula.setAltura(toUpdate.getAltura());
+//             break;
+//         }
+//     }
+// }
   
 
   private Database getConnection() {
@@ -113,90 +113,52 @@ public class Database {
       // Colocar na tela: Usuário não encontrado com o ID: " + id
     }
   }
-/* 
 
-  public void DatabaseCotacao() {
-    cotacoes = new ArrayList<>();
+  
+
+
+  
+
+  public void initMoeda() {
+    moedas.add(new Moeda(0.5, "4", "Dorado", 7.81));
+    moedas.add(new Moeda(0.25, "5", "Prata", 7.55));
+    moedas.add(new Moeda(0.05, "6",  "Marrom", 4.10));
+    // moedas.add(new Cedula("Cad3","End3", 456));
   }
 
-  public void initCotacao() {
-    cotacoes.add(new Cotacao("123", "124", "20/05/2023", 2.2));
-    cotacoes.add(new Cotacao("124", "123", "20/05/2023", 2.2));
-    cotacoes.add(new Cotacao("125", "123", "20/05/2023", 1.0));
-    // cotacoes.add(new Cotacao("Cad3","End3", 456));
+  public void addDadoMoeda(Moeda novo) {
+    moedas.add(novo);
   }
 
-  public void addDadoCotacao(Cotacao novo) {
-    cotacoes.add(novo);
+  public ArrayList<Moeda> recuperaDadoMoeda() {
+    return moedas;
   }
 
-  public ArrayList<Cotacao> recuperaDadoCotacao() {
-    return cotacoes;
-  }
-
-  public void deletarCotacao(String idMoeda1, String idMoeda2) {
-    Cotacao cotacaoExcluir = null;
-    for (Cotacao cotacao : cotacoes) {
-      if (cotacao.getIdMoeda1().equals(idMoeda1) && cotacao.getIdMoeda2().equals(idMoeda2)) {
-        cotacaoExcluir = cotacao;
+ public void deletarMoeda(String idMoeda) {
+    Moeda MoedaExcluir = null;
+    for (Moeda moeda : moedas) {
+      if (moeda.getIdMoeda().equals(idMoeda)) {
+        MoedaExcluir = moeda;
         break;
       }
     }
-    if (cotacaoExcluir != null) {
-      cotacoes.remove(cotacaoExcluir);
-      // Colocar na tela: Cedula removido com sucesso: " + cedulaExcluir.getValor()
-    } else {
-      // Colocar na tela: Cedula não encontrado com o ID: " + id
-    }
-  }
-*/
-  
-
-  
-
-
-  
-
-  public void initMoedaMetal() {
-    moedasMetais.add(new MoedaMetal("010", 0.5, "4", "Dorado", 7.81, 23.00));
-    moedasMetais.add(new MoedaMetal("010", 0.25, "5", "Prata", 7.55, 15.6));
-    moedasMetais.add(new MoedaMetal("010", 0.05, "6",  "Marrom", 4.10, 22.00));
-    // moedasMetais.add(new Cedula("Cad3","End3", 456));
-  }
-
-  public void addDadoMoedaMetal(MoedaMetal novo) {
-    moedasMetais.add(novo);
-  }
-
-  public ArrayList<MoedaMetal> recuperaDadoMoedaMetal() {
-    return moedasMetais;
-  }
-
- public void deletarMoedaMetal(String idMoeda) {
-    MoedaMetal MoedaMetalExcluir = null;
-    for (MoedaMetal moedaMetal : moedasMetais) {
-      if (moedaMetal.getIdMoeda().equals(idMoeda)) {
-        MoedaMetalExcluir = moedaMetal;
-        break;
-      }
-    }
-    if (MoedaMetalExcluir != null) {
-      moedasMetais.remove(MoedaMetalExcluir);
-      // Colocar na tela: Cedula removido com sucesso: " + MoedaMetalExcluir.getValor()
+    if (MoedaExcluir != null) {
+      moedas.remove(MoedaExcluir);
+      // Colocar na tela: Cedula removido com sucesso: " + MoedaExcluir.getValor()
     } else {
       // Colocar na tela: Cedula não encontrado com o ID: " + id
     }
   }
   
-  public void update(MoedaMetal toUpdate) {
+  public void update(Moeda toUpdate) {
         Database db = getConnection();
-        ArrayList<MoedaMetal> moedasMetais = db.recuperaDadoMoedaMetal();
-        for (int i = 0; i < moedasMetais.size(); i++) {
-            MoedaMetal moedaMetal = moedasMetais.get(i);
-            if (moedaMetal.getIdMoeda().equals(toUpdate.getIdMoeda())) {
-                moedaMetal.setValor(toUpdate.getValor());
-                moedaMetal.setPeso(toUpdate.getPeso());
-                System.out.println("Moeda Metal atualizada: " + moedaMetal);
+        ArrayList<Moeda> moedas = db.recuperaDadoMoeda();
+        for (int i = 0; i < moedas.size(); i++) {
+            Moeda moeda = moedas.get(i);
+            if (moeda.getIdMoeda().equals(toUpdate.getIdMoeda())) {
+                moeda.setValor(toUpdate.getValor());
+              
+                System.out.println("Moeda  atualizada: " + moeda);
                 break;
             }
         }

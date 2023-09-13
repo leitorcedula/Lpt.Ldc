@@ -2,9 +2,9 @@ package br.aluno.ifsp.LDC.controller;
 
 
 import  br.aluno.ifsp.LDC.dao.CedulaDAO;
-import  br.aluno.ifsp.LDC.dao.MoedaMetalDAO;
+import  br.aluno.ifsp.LDC.dao.MoedaDAO;
 import  br.aluno.ifsp.LDC.model.Cedula;
-import  br.aluno.ifsp.LDC.model.MoedaMetal;
+import  br.aluno.ifsp.LDC.model.Moeda;
 
 import  br.aluno.ifsp.LDC.LdcApplication;
 

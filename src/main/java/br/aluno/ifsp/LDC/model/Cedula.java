@@ -1,14 +1,14 @@
 package  br.aluno.ifsp.LDC.model;
 
-public class Cedula  extends MoedaAbstrata{
+public class Cedula {
     
     
     private double largura;
     private double altura;
 
-    public Cedula(String idPais, double valor,  String idMoeda ,
+    public Cedula( double valor,  String idMoeda ,
             double largura, double altura) {
-        super(valor, idMoeda);
+       
        
        
         this.largura = largura;
@@ -37,18 +37,18 @@ public class Cedula  extends MoedaAbstrata{
 
 
 
-    @Override
-    public String toString() {
-    return "Cedula [valor=" + getValor() + ", idMoeda=" + getIdMoeda() + ", largura=" + largura + ", altura=" + altura + "]";
-}
+//     @Override
+//     public String toString() {
+//     return "Cedula [valor=" + getValor() + ", idMoeda=" + getIdMoeda() + ", largura=" + largura + ", altura=" + altura + "]";
+// }
 
 
 
-    @Override
-    void verificarAutenticidade() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'verificarAutenticidade'");
-    }
+//     @Override
+//     void verificarAutenticidade() {
+//         // TODO Auto-generated method stub
+//         throw new UnsupportedOperationException("Unimplemented method 'verificarAutenticidade'");
+//     }
 
 
 
