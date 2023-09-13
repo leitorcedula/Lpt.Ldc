@@ -14,6 +14,7 @@ import br.aluno.ifsp.LDC.dao.MoedaMetalDAO;
 import br.aluno.ifsp.LDC.model.MoedaMetal;
 import jakarta.websocket.server.PathParam;
 
+@RestController
 public class MoedaController {
     @Autowired
     private MoedaMetalDAO moedaDeletada = MoedaMetalDAO.getInstance();
@@ -32,7 +33,7 @@ public class MoedaController {
     }
 
     @PutMapping("/ldc/editamoeda/{idMoeda}")
-    public String attMoeda (@PathParam("titulo") String titulo, @RequestBody MoedaMetal novaMoeda){
+    public String attMoeda (@PathParam("idMoeda") String idMoeda, @RequestBody MoedaMetal novaMoeda){
         MoedaMetalDAO moedaDAO = new MoedaMetalDAO();
         moedaDAO.update(novaMoeda);
         return "essa é a moeda atualizada:" + novaMoeda;

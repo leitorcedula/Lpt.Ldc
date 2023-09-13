@@ -5,6 +5,8 @@ import br.aluno.ifsp.LDC.model.MoedaMetal;
 
 import java.util.ArrayList;
 
+import org.springframework.stereotype.Service;
+@Service
 public class MoedaMetalDAO {
 
     private Database db;
