@@ -24,12 +24,12 @@ public class MoedaController {
     MoedaRepository moedaRepository;
 
     @PostMapping("/ldc/criarMoeda")
-    public Moeda createCedula(@RequestBody Moeda moeda){
+    public Moeda createMoeda(@RequestBody Moeda moeda){
         return moedaRepository.save(moeda);
     }
-     @GetMapping("ldc/mostrarMoeda/{moedaId}")
-    public Optional<Moeda> getMoedaById(@PathVariable Long moedaId) {
-        return moedaRepository.findById(moedaId);
+     @GetMapping("ldc/mostrarMoeda/{idMoeda}")
+    public Optional<Moeda> getMoedaById(@PathVariable Long idMoeda) {
+        return moedaRepository.findById(idMoeda);
             
     }
     

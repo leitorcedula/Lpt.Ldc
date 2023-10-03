@@ -1,9 +1,10 @@
 package br.aluno.ifsp.LDC.model;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+@Entity
 public class Moeda {
 
  
@@ -19,7 +20,9 @@ public class Moeda {
     private double diametro;
 
 
+    public  Moeda(){
 
+    }
     public Moeda(double valor, String cor, double peso, double diametro) {
         
          this.valor = valor;

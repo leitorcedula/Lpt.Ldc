@@ -19,6 +19,10 @@ public class Cedula {
     private double valor;
     private double largura;
     private double altura;
+
+    public Cedula(){
+        System.out.println("Feito");
+    }
     
     public Cedula(  double largura, double altura) {        
     
