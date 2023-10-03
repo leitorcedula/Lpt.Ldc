@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,6 +32,17 @@ public class MoedaController {
     public Optional<Moeda> getMoedaById(@PathVariable Long idMoeda) {
         return moedaRepository.findById(idMoeda);
             
+    }
+    @DeleteMapping("/ldc/deletarMoeda/{idMoeda}")
+    public String deleteCedula(@PathVariable Long idMoeda){
+        moedaRepository.deleteById(idMoeda);
+        return "Moeda Apagada com sucesso!";
+    }
+    @PutMapping("/ldc/editarMoeda/{id}")
+    public String updateMoeda(@RequestBody Moeda updateMoeda, @PathVariable("id") Long id){
+        moedaRepository.findById(id);
+        moedaRepository.save(updateMoeda);
+        return "Moeda atualizada! \n Este é o objeto com novos atributos: \n" + updateMoeda.toString();
     }
     
 }

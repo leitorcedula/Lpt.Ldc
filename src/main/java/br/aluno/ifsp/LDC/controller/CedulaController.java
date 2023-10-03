@@ -24,20 +24,13 @@ public class CedulaController {
     CedulaRepository cedulaRepository;
 
     @PostMapping("/ldc/criarCedula")
-    public Cedula createCedula(@RequestBody Cedula cedula){
-        return cedulaRepository.save(cedula);
+    public String createCedula(@RequestBody Cedula cedula){
+        cedulaRepository.save(cedula);
+        return "Cédula Salva";
     }
-
     @DeleteMapping("/ldc/deletarCedula/{idCedula}")
-    public void deleteCedula(@PathVariable Long idCedula){
+    public String deleteCedula(@PathVariable Long idCedula){
         cedulaRepository.deleteById(idCedula);
+        return "Cédula Apagada com sucesso!";
     }
-
-    
-   
-
 } 
-
-
-
-

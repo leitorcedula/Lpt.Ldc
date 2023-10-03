@@ -70,6 +70,11 @@ public class Moeda {
     public void setIdMoeda(Long idMoeda) {
         this.idMoeda = idMoeda;
     }
+    @Override
+    public String toString() {
+        return "Moeda [idMoeda=" + idMoeda + ", valor=" + valor + ", cor=" + cor + ", peso=" + peso + ", diametro="
+                + diametro + "]";
+    }
 
    
     
