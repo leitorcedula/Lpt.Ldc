@@ -3,35 +3,35 @@ package br.aluno.ifsp.LDC.controller;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.aluno.ifsp.LDC.dao.CedulaDAO;
 import br.aluno.ifsp.LDC.model.Cedula;
+import br.aluno.ifsp.LDC.model.Moeda;
+import br.aluno.ifsp.LDC.repository.CedulaRepository;
 
 @RestController
+@CrossOrigin
 public class CedulaController {
     @Autowired
-    private CedulaDAO cedulaDeletada = CedulaDAO.getInstance();
+    CedulaRepository cedulaRepository;
+
+    @PostMapping("/ldc/criaCedula")
+    public Cedula createCedula(@RequestBody Cedula cedula){
+        return cedulaRepository.save(cedula);
+    }
+
+    @DeleteMapping("/ldc/deletaCedula/{idCedula}")
+    public void deleteCedula(@PathVariable Long idCedula){
+        cedulaRepository.deleteById(idCedula);
+    }
+
     
-    @PostMapping("/ldc/criacedula")
-    public String CriarCedula(@RequestBody Cedula novaCedula){
-        CedulaDAO cedulaDAO = CedulaDAO.getInstance();
-        return "Cédula criadaa com sucesso!";
-    }
-    @DeleteMapping("/ldc/deletaCedula/{idMoeda}")
-    public String deletarCedula(@PathVariable("idMoeda") String idMoeda) {
-        Cedula cedulaDeletar = cedulaDeletada.encontraIdsCedula(idMoeda);
+   
 
-        if (cedulaDeletar != null) {
-            cedulaDeletada.delete(cedulaDeletar);
-            return "Cedula excluída!";
-        } else {
-            return "Id da Cedula não encontrado.";
-        }
-
-    }
-}
+} 

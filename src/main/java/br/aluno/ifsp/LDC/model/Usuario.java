@@ -1,6 +1,6 @@
 package br.aluno.ifsp.LDC.model;
 
-import br.aluno.ifsp.LDC.dao.UsuarioDAO;
+
 
 public class Usuario {
     private String idUsuario;

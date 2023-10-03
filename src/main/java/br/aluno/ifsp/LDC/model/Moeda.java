@@ -1,31 +1,41 @@
 package br.aluno.ifsp.LDC.model;
 
-public class MoedaMetal extends MoedaAbstrata implements MoedaInterface {
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+public class Moeda {
+
+ 
+
+     
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idMoeda;
+
+    private double valor;
     private String cor;
     private double peso;
     private double diametro;
 
-    
-    public MoedaMetal(String idPais, double valor, String idMoeda, String cor, double peso,
-            double diametro) {
-        super(valor, idMoeda);
+
+
+    public Moeda(double valor, String cor, double peso, double diametro) {
+        
+         this.valor = valor;
         this.cor = cor;
         this.peso = peso;
         this.diametro = diametro;
     }
-
-    @Override
-    void verificarAutenticidade() {
-        System.out.println("Verificando autenticidade da moeda metálica...");
-        // Lógica de verificação de autenticidade
+    
+    public double getValor() {
+        return valor;
     }
 
-    @Override
-    public String getTamanho() {
-        return "Médio";
+    public void setValor(double valor) {
+        this.valor = valor;
     }
 
-    @Override
     public String getCor() {
         return cor;
     }
@@ -50,11 +60,15 @@ public class MoedaMetal extends MoedaAbstrata implements MoedaInterface {
         this.diametro = diametro;
     }
 
-    @Override
-    public String toString() {
-        return "MoedaMetal [cor=" + cor + ", peso=" + peso + ", diametro=" + diametro + "]";
+    public Long getIdMoeda() {
+        return idMoeda;
     }
 
+    public void setIdMoeda(Long idMoeda) {
+        this.idMoeda = idMoeda;
+    }
+
+   
     
 }
 
